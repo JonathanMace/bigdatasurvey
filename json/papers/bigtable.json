@@ -1,0 +1,6 @@
+{
+	id: "bigtable",
+	name: "Bigtable: A Distributed Storage System for Structured Data",
+	url: "https://www.usenix.org/conference/osdi-06/bigtable-distributed-storage-system-structured-data",
+	pdf: "http://research.google.com/archive/bigtable-osdi06.pdf",
+}

@@ -1,0 +1,12 @@
+{
+	id: "zookeeper",
+	name: "Apache ZooKeeper",
+	url: "https://zookeeper.apache.org/",
+	wiki: "https://en.wikipedia.org/wiki/Apache_ZooKeeper",
+	description: "ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services",
+	month: 6,
+	year: 2008,
+	tags: [ "co-ordination", "synchronization" ],
+	git: "https://github.com/apache/zookeeper",
+	build: "ant",
+}

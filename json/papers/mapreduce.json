@@ -1,0 +1,6 @@
+{
+	id: "mapreduce",
+	name: "MapReduce: Simplified Data Processing on Large Clusters",
+	url: "http://dl.acm.org/citation.cfm?id=1251264",
+	pdf: "https://research.google.com/archive/mapreduce-osdi04.pdf",
+}

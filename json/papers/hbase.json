@@ -1,0 +1,5 @@
+{
+	id: "hbase",
+	name: "Apache HBase Reference Guide",
+	url: "http://hbase.apache.org/book.html",
+}

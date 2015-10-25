@@ -1,0 +1,6 @@
+{
+	id: "sparksql",
+	name: "Spark SQL: Relational Data Processing in Spark",
+	url: "http://dl.acm.org/citation.cfm?id=2742797",
+	pdf: "https://people.csail.mit.edu/matei/papers/2015/sigmod_spark_sql.pdf",
+}

@@ -1,0 +1,92 @@
+libraries:
+parquet (dremel)
+thrift (protobuf
+
+
+swift
+apache drill
+mapr-fs
+mapr-db
+hstore
+mongodb
+riak
+datastax
+10gen
+basho
+HBase
+Voldemort
+Riak
+Redis MongoDB
+HyperTable
+Neo4j
+HyperGraphDB
+DEX
+InfoGrid
+VertexDB
+Sones
+CouchDB
+AllegroGraph
+BerkeleyDB
+Oracle NoSQL
+Tokyo Cabinet MemcacheDB
+FlockDB
+nutch?
+mahout
+lucene?
+apache gora
+hypertable
+voldemort
+redis
+mysql?
+memcached
+hsqldb
+solr
+cascading
+htrace
+...
+
+
+Maybe related URLS:
+
+https://projects-old.apache.org/indexes/quick.html
+http://www.datamation.com/data-center/50-top-open-source-tools-for-big-data-1.html
+https://www.openstack.org/
+https://cloudstack.apache.org/
+http://osv.io/
+https://hadoopecosystemtable.github.io/
+https://www.cloudera.com/content/www/en-us/training/library/hadoop-ecosystem.html
+https://dzone.com/articles/hadoop-101-explanation-hadoop
+https://www.udacity.com/course/viewer#!/c-ud617/l-306818608/m-309273678
+http://hadoopilluminated.com/hadoop_illuminated/Bigdata_Ecosystem.html
+http://www.slideshare.net/uweseiler/introduction-to-thehadoopecosystemjavaserbiacodecentric
+
+
+....
+
+fields that seem reasonable:
+
+
+id
+project name
+project description
+project started date
+project still active
+project source url
+project issue url
+related academic papers
+client-based
+server-based
+process names
+example typical number of servers
+organizations involved
+system language
+client language(s)
+platforms supported
+tags
+started by
+
+optional dependencies
+required dependencies
+compatible with
+symbiotic dependencies (upwards)
+

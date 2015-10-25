@@ -1,0 +1,13 @@
+{
+	id: "mesos",
+	name: "Apache Mesos",
+	url: "https://mesos.apache.org/",
+	wiki: "https://en.wikipedia.org/wiki/Apache_Mesos",
+	description: "Mesos is a cluster resource manager that provides fine-grained resource management for client applications and frameworks",
+	month: 7,
+	year: 2013,
+	tags: ["resource manager", "cluster manager"],
+	papers: ["mesos"],
+	git: "https://github.com/apache/mesos",
+	build: "make",
+}

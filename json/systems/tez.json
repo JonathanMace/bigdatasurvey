@@ -1,0 +1,15 @@
+{
+	id: "tez",
+	name: "Apache Tez",
+	url: "https://tez.apache.org/",
+	description: "The Apache Tez project is aimed at building an application framework which allows for a complex directed-acyclic-graph of tasks for processing data.  Tez is inspired by Microsoft's Dryad framework.",
+	month: 3,
+	year: 2013,
+	tags: ["data processing"],
+	git: "https://github.com/apache/tez",
+	build: "maven",
+	papers: [ "dryad" ],
+	down: {
+		"yarn": "Tez DAGs are composed of individual tasks that are scheduled and run as YARN containers",
+	},
+}

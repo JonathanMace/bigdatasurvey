@@ -1,0 +1,16 @@
+{
+	id: "impala",
+	name: "Impala",
+	url: "https://impala.io",
+	description: "Impala is a distributed query engine for running SQL queries directly over data residing in HDFS, HBase or Kudu",
+	month: 10,
+	year: 2012,
+	tags: ["distributed query engine"],
+	git: "https://github.com/cloudera/impala",
+	build: "",
+	down: {
+		"hbase": "Impala queries can run over data in HBase",
+		"hdfs": "Impala queries can run over data in HDFS",
+		"kudu": "Impala queries can run over data in Kudu",
+	},
+}

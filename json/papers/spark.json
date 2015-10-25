@@ -1,0 +1,6 @@
+{
+	id: "spark",
+	name: "Spark: Cluster Computing with Working Sets",
+	url: "https://dl.acm.org/citation.cfm?id=1863113",
+	pdf: "http://www.cs.berkeley.edu/~matei/papers/2010/hotcloud_spark.pdf",
+}

@@ -1,0 +1,17 @@
+{
+	id: "hbase",
+	name: "Apache HBase",
+	url: "https://hbase.apache.org",
+	wiki: "https://en.wikipedia.org/wiki/Apache_HBase",
+	description: "HBase is a non-relational distributed database modeled after Google's BigTable.  HBase began as a project by the company Powerset and is now a top-levle Apache project.  ",
+	month: 3,
+	year: 2007,
+	tags: ["distributed database"],
+	papers: [ "bigtable", "hbase" ],
+	git: "https://github.com/apache/hbase",
+	build: "maven",
+	down: {
+		"zookeeper": "HBase depends on a running ZooKeeper quorum to manage cluster metadata",
+		"hdfs": "HBase table data can be stored in HDFS",
+	},
+}

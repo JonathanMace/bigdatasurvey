@@ -1,0 +1,6 @@
+{
+	id: "dremel",
+	name: "Dremel: Interactive Analysis of Web-Scale Datasets",
+	url: "http://dl.acm.org/citation.cfm?id=1920886",
+	pdf: "http://research.google.com/pubs/archive/36632.pdf",
+}
