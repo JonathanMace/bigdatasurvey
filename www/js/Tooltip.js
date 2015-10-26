@@ -20,9 +20,6 @@ var DirectedAcyclicGraphTooltip = function(gravity) {
 	var tooltip = Tooltip(gravity).title(function(d) {
 		var system = d.system;
 
-		var reserved = ["name", ""]
-		var reserved = ["Source", "Operation", "Agent", "Label", "Class", "Timestamp", "HRT", "Cycles", "Host", "ProcessID", "ThreadID", "ThreadName", "X-Trace"];
-
 		function appendRow(key, value, tooltip) {
 			var keyrow = $("<div>").attr("class", "key").append(key);
 			var valrow = $("<div>").attr("class", "value").append(value);
@@ -42,31 +39,33 @@ var DirectedAcyclicGraphTooltip = function(gravity) {
 			appendRow("Wiki", makeUrl(system.wiki), tooltip);
 		appendRow("", $("<div>").attr("width", "100px").append(system.description), tooltip);
 			
-//		tooltip.append($("<div>").attr("class", "value").append(system.name));
 
-//		// Do the reserved first
-//		for (var i = 0; i < reserved.length; i++) {
-//			var key = reserved[i];
-//			if (report.hasOwnProperty(key)) {
-//				seen[key] = true;
-//				if (key=="Timestamp") {
-//					appendRow(key, timestampToTimeString(report[key]), tooltip);
-//				} else {
-//					appendRow(key, report[key], tooltip);
-//				}
-//
-//			}
-//		}
-//
-//		// Do the remainder
-//		for (var key in report) {
-//			if (!seen[key]) {
-//				appendRow(key, report[key], tooltip);
-//			}
-//		}
-//
-//		// Do the label
-//		appendRow("(hash)", hash_report(report), tooltip);
+		return tooltip.outerHTML();
+	});
+
+	return tooltip;
+}
+
+var DirectedAcyclicGraphEdgeTooltip = function(gravity) {
+
+	var tooltip = Tooltip(gravity).title(function(d) {
+		var title = "<b>" + d.source.system.name + " to " + d.target.system.name + "</b>";
+		var label = d.source.system.down[d.target.system.id];
+
+		function appendRow(key, value, tooltip) {
+			var keyrow = $("<div>").attr("class", "key").append(key);
+			var valrow = $("<div>").attr("class", "value").append(value);
+			var clearrow = $("<div>").attr("class", "clear");
+			tooltip.append($("<div>").append(keyrow).append(valrow).append(clearrow));
+		}
+		
+		function makeUrl(url) {
+			return $("<a>").attr("href", url).attr("target", "_blank").append(url);
+		}
+
+		var tooltip = $("<div>").attr("class", "xtrace-tooltip");
+		appendRow("", title, tooltip);
+		appendRow("", label, tooltip);	
 
 		return tooltip.outerHTML();
 	});

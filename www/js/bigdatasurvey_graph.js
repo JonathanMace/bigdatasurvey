@@ -18,6 +18,7 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
     var DAGMinimap = DirectedAcyclicGraphMinimap(DAG).width("19.5%").height("19.5%").x("80%").y("80%");
     var DAGHistory = List().width("15%").height("99%").x("0.5%").y("0.5%");
     var DAGTooltip = DirectedAcyclicGraphTooltip();
+    var DAGEdgeTooltip = DirectedAcyclicGraphEdgeTooltip();
     var DAGContextMenu = DirectedAcyclicGraphContextMenu(graph, graphSVG);
 
     // Attach the panzoom behavior
@@ -135,6 +136,15 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
             nodes.classed("hovered", false).classed("immediate", false);
         });
         
+        edges.on("mouseover", function(d) {
+        	graphSVG.classed("hovering", true);
+        	highlightEdge(d);
+        }).on("mouseout", function(d) {
+            graphSVG.classed("hovering", false);
+            edges.classed("hovered", false).classed("immediate", false);
+            nodes.classed("hovered", false).classed("immediate", false);
+        })
+        
         // When a list item is clicked, it will be removed from the history and added to the graph
         // So we override the DAG node transition behaviour so that the new nodes animate from the click position
         items.on("click", function(d, i) {
@@ -155,6 +165,15 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
             // Redraw the graph and such
             dag.draw();
         })
+        
+        function highlightEdge(edge) {
+        	edges.classed("hovered immediate", function(d) {
+        		return d == edge;
+        	});
+        	nodes.classed("hovered immediate", function(d) {
+        		return d == edge.source || d == edge.target;
+        	});
+        }
         
         function highlightPath(center) {        
             var path = getEntirePathLinks(center);
@@ -209,6 +228,7 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
         console.log("draw minimap", new Date().getTime() - start);
         start = (new Date()).getTime();
         graphSVG.selectAll(".node").call(DAGTooltip);        // Attach tooltips
+        graphSVG.selectAll(".edge").call(DAGEdgeTooltip);        // Attach tooltips
         console.log("draw tooltips", new Date().getTime() - start);
         start = (new Date()).getTime();
         setupEvents();                      // Set up the node selection events
