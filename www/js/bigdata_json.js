@@ -1,5 +1,5 @@
 var getSystemList = function(success, error) {
-	var url = "../json/survey.json";
+	var url = "../../json/survey.json";
 	$.ajax({
 		  dataType: "json",
 		  url: url,
@@ -9,7 +9,7 @@ var getSystemList = function(success, error) {
 }
 
 var getSystemData = function(systemName, success, error) {
-	var url = "../json/systems/" + systemName + ".json";
+	var url = "../../json/systems/" + systemName + ".json";
 	console.log("Loading system", systemName);
 	$.ajax({
 		  dataType: "json",
@@ -20,7 +20,7 @@ var getSystemData = function(systemName, success, error) {
 }
 
 var getPaperData = function(paperName, success, error) {
-	var url = "../json/papers/" + paperName + ".json";
+	var url = "../../json/papers/" + paperName + ".json";
 	console.log("Loading paper", paperName);
 	$.ajax({
 		  dataType: "json",
