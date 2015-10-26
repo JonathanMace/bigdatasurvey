@@ -1,17 +1,17 @@
 {
-	id: "accumulo",
-	name: "Apache Accumulo",
-	url: "https://accumulo.apache.org/",
-	wiki: "https://en.wikipedia.org/wiki/Apache_Accumulo",
-	description: "Accumulo is a distributed database modeled after Google's BigTable.  It provides fine-grained access control missing from similar distributed databases like HBase.",
-	month: 10,
-	year: 2011,
-	tags: [ "distributed database" ],
-	papers: [ "bigtable" ],
-	git: "https://github.com/apache/accumulo",
-	build: "maven",
-	down: {
+	"id": "accumulo",
+	"name": "Apache Accumulo",
+	"url": "https://accumulo.apache.org/",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Accumulo",
+	"description": "Accumulo is a distributed database modeled after Google's BigTable.  It provides fine-grained access control missing from similar distributed databases like HBase.",
+	"month": 10,
+	"year": 2011,
+	"tags": [ "distributed database" ],
+	"papers": [ "bigtable" ],
+	"git": "https://github.com/apache/accumulo",
+	"build": "maven",
+	"down": {
 		"zookeeper": "Accumulo uses ZooKeeper for co-ordination",
-		"hdfs": "Accumulo stores data in HDFS",
-	},
+		"hdfs": "Accumulo stores data in HDFS"
+	}
 }

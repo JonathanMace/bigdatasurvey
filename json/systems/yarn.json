@@ -1,12 +1,13 @@
 {
-	id: "yarn",
-	name: "Hadoop YARN",
-	url: "https://hadoop.apache.org/",
-	wiki: "https://en.wikipedia.org/wiki/Apache_Hadoop",
-	git: "https://github.com/apache/hadoop",
-	build: "maven"
-	description: "A framework for job scheduling and cluster resource management.",
-	month: 5,
-	year: 2012,
-	tags: ["resource manager", "cluster manager"],
+	"id": "yarn",
+	"name": "Hadoop YARN",
+	"url": "https://hadoop.apache.org/",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Hadoop",
+	"git": "https://github.com/apache/hadoop",
+	"build": "maven",
+	"description": "A framework for job scheduling and cluster resource management.",
+	"month": 5,
+	"year": 2012,
+	"tags": ["resource manager", "cluster manager"],
+	"papers": [ "yarn" ]
 }

@@ -1,19 +1,19 @@
 {
-	id: "spark",
-	name: "Apache Spark",
-	url: "https://spark.apache.org",
-	wiki: "https://en.wikipedia.org/wiki/Apache_Spark",
-	description: "Spark is a cluster computing framework for in-memory distributed applications",
-	month: 1,
-	year: 2010,
-	tags: ["data processing"],
-	git: "https://github.com/apache/spark",
-	build: "maven",
-	down: {
+	"id": "spark",
+	"name": "Apache Spark",
+	"url": "https://spark.apache.org",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Spark",
+	"description": "Spark is a cluster computing framework for in-memory distributed applications",
+	"month": 1,
+	"year": 2010,
+	"tags": ["data processing"],
+	"git": "https://github.com/apache/spark",
+	"build": "maven",
+	"down": {
 		"mesos": "Spark jobs are decomposed into DAGs with stages, and launches tasks that can run on Mesos.",
 		"yarn": "Spark jobs are decomposed into DAGs with stages, and launches tasks that can run on YARN.",
 		"hdfs": "Spark jobs can read and write data from HDFS.",
 		"cassandra": "Spark jobs can read and write data from Cassandra.",
-		"kudu": "Spark jobs can read and write data from Kudu",
-	},
+		"kudu": "Spark jobs can read and write data from Kudu"
+	}
 }

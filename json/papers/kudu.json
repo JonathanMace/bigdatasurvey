@@ -1,6 +1,6 @@
 {
-	id: "kudu",
-	name: "Kudu: Storage for Fast Analytics on Fast Data",
-	url: "http://getkudu.io",
-	pdf: "http://getkudu.io/kudu.pdf",
+	"id": "kudu",
+	"name": "Kudu: Storage for Fast Analytics on Fast Data",
+	"url": "http://getkudu.io",
+	"pdf": "http://getkudu.io/kudu.pdf"
 }

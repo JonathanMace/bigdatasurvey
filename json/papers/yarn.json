@@ -1,0 +1,6 @@
+{
+	"id": "yarn",
+	"name": "Apache Hadoop YARN: yet another resource negotiator",
+	"url": "http://dl.acm.org/citation.cfm?id=2523633",
+	"pdf": "https://www.sics.se/~amir/files/download/dic/2013%20-%20Apache%20Hadoop%20YARN:%20Yet%20Another%20Resource%20Negotiator%20(SoCC).pdf"
+}

@@ -1,6 +1,6 @@
 {
-	id: "piglatin",
-	name: "Pig Latin: A Not-So-Foreign Language for Data Processing",
-	url: "http://dl.acm.org/citation.cfm?id=1376726",
-	pdf: "http://infolab.stanford.edu/~olston/publications/sigmod08.pdf",
+	"id": "piglatin",
+	"name": "Pig Latin: A Not-So-Foreign Language for Data Processing",
+	"url": "http://dl.acm.org/citation.cfm?id=1376726",
+	"pdf": "http://infolab.stanford.edu/~olston/publications/sigmod08.pdf"
 }

@@ -1,16 +1,16 @@
 {
-	id: "sparksql",
-	name: "Spark SQL",
-	url: "http://spark.apache.org/sql/",
-	wiki: "https://en.wikipedia.org/wiki/Apache_Spark#Spark_SQL",
-	description: "Spark SQL is a component on top of Spark Core that introduces a new data abstraction called DataFrames, which provides support for structured and semi-structured data.  Spark SQL can be seen as the successor to Shark.",
-	month: 5,
-	year: 2014,
-	tags: [ "data processing" ],
-	papers: [ "sparksql" ],
-	git: "https://github.com/apache/spark/",
-	build: "maven",
-	down: {
-		"spark": "Spark SQL is a component that runs on Spark",
-	},
+	"id": "sparksql",
+	"name": "Spark SQL",
+	"url": "http://spark.apache.org/sql/",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Spark#Spark_SQL",
+	"description": "Spark SQL is a component on top of Spark Core that introduces a new data abstraction called DataFrames, which provides support for structured and semi-structured data.  Spark SQL can be seen as the successor to Shark.",
+	"month": 5,
+	"year": 2014,
+	"tags": [ "data processing" ],
+	"papers": [ "sparksql" ],
+	"git": "https://github.com/apache/spark/",
+	"build": "maven",
+	"down": {
+		"spark": "Spark SQL is a component that runs on Spark"
+	}
 }

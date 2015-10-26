@@ -1,6 +1,6 @@
 {
-	id: "hive",
-	name: "Hive - A Warehousing Solution Over a Map-Reduce Framework",
-	url: "http://dl.acm.org/citation.cfm?id=1687609",
-	pdf: "http://www.vldb.org/pvldb/2/vldb09-938.pdf",
+	"id": "hive",
+	"name": "Hive - A Warehousing Solution Over a Map-Reduce Framework",
+	"url": "http://dl.acm.org/citation.cfm?id=1687609",
+	"pdf": "http://www.vldb.org/pvldb/2/vldb09-938.pdf"
 }

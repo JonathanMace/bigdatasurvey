@@ -1,6 +1,6 @@
 {
-	id: "gfs",
-	name: "The Google File System",
-	url: "http://dl.acm.org/citation.cfm?id=945450",
-	pdf: "https://research.google.com/archive/gfs-sosp2003.pdf",
+	"id": "gfs",
+	"name": "The Google File System",
+	"url": "http://dl.acm.org/citation.cfm?id=945450",
+	"pdf": "https://research.google.com/archive/gfs-sosp2003.pdf"
 }

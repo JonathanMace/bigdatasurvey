@@ -1,6 +1,6 @@
 {
-	id: "mesos",
-	name: "Mesos: a platform for fine-grained resource sharing in the data center",
-	url: "http://dl.acm.org/citation.cfm?id=1972488",
-	pdf: "https://people.csail.mit.edu/matei/papers/2011/nsdi_mesos.pdf",
+	"id": "mesos",
+	"name": "Mesos: a platform for fine-grained resource sharing in the data center",
+	"url": "http://dl.acm.org/citation.cfm?id=1972488",
+	"pdf": "https://people.csail.mit.edu/matei/papers/2011/nsdi_mesos.pdf"
 }

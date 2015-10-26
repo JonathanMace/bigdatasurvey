@@ -1,16 +1,16 @@
 {
-	id: "reef",
-	name: "Apache REEF",
-	url: "https://reef.incubator.apache.org/index.html",
-	description: "REEF, the Retainable Evaluator Execution Framework, is our approach to simplify and unify the lower layers of big data systems on modern resource managers.",
-	month: 10,
-	year: 2014,
-	tags: [ "execution framework" ],
-	papers: [ "reef" ],
-	git: "https://github.com/apache/incubator-reef",
-	build: "maven",
-	down: {
+	"id": "reef",
+	"name": "Apache REEF",
+	"url": "https://reef.incubator.apache.org/index.html",
+	"description": "REEF, the Retainable Evaluator Execution Framework, is our approach to simplify and unify the lower layers of big data systems on modern resource managers.",
+	"month": 10,
+	"year": 2014,
+	"tags": [ "execution framework" ],
+	"papers": [ "reef" ],
+	"git": "https://github.com/apache/incubator-reef",
+	"build": "maven",
+	"down": {
 		"yarn": "REEF aims to abstract lower-level resource managers like YARN",
-		"mesos": "REEF aims to abstract lower-level resource managers like mesos",
-	},
+		"mesos": "REEF aims to abstract lower-level resource managers like mesos"
+	}
 }

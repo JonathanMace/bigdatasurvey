@@ -1,20 +1,20 @@
 {
-	id: "mapreduce",
-	name: "Hadoop MapReduce",
-	url: "https://hadoop.apache.org/",
-	wiki: "https://en.wikipedia.org/wiki/Apache_Hadoop",
-	description: "MapReduce is a programming model and an associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster.  The name MapReduce originally referred to the proprietary Google technology, but has since been genericized. MapReduce as a big data processing model is considered dead by many domain experts, as development has moved on to more capable and less disk-oriented mechanisms that incorporate full map and reduce capabilities.",
-	month: 9,
-	year: 2005,
-	tags: ["data processing"],
-	git: "https://github.com/apache/hadoop",
-	build: "maven",
-	papers: ["mapreduce"],
-	down: {
+	"id": "mapreduce",
+	"name": "Hadoop MapReduce",
+	"url": "https://hadoop.apache.org/",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Hadoop",
+	"description": "MapReduce is a programming model and an associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster.  The name MapReduce originally referred to the proprietary Google technology, but has since been genericized. MapReduce as a big data processing model is considered dead by many domain experts, as development has moved on to more capable and less disk-oriented mechanisms that incorporate full map and reduce capabilities.",
+	"month": 9,
+	"year": 2005,
+	"tags": ["data processing"],
+	"git": "https://github.com/apache/hadoop",
+	"build": "maven",
+	"papers": ["mapreduce"],
+	"down": {
 		"yarn": "MapReduce jobs are decomposed into tasks that are scheduled and deployed by YARN.",
 		"hdfs": "MapReduce jobs can read and write data residing in HDFS.",
 		"hbase": "MapReduce jobs can read and write data residing in HBase.",
 		"kudu": "MapReduce jobs can read and write data residing in Kudu.",
-		"cassandra": "MapReduce jobs can read and write data from Cassandra.",
-	},
+		"cassandra": "MapReduce jobs can read and write data from Cassandra."
+	}
 }

@@ -1,21 +1,21 @@
 {
-	id: "hive",
-	name: "Apache Hive",
-	url: "https://hive.apache.org",
-	wiki: "https://en.wikipedia.org/wiki/Apache_Hive",
-	description: "Hive is a data warehousing infrastructure for Hadoop.  Hive provides a SQL-like language (HiveQL) for expressing queries over data stored in the filesystem, and compiles queries into jobs that evaluate the query.  Hive is best used for batch jobs over immutable data.",
-	month: 6,
-	year: 2009,
-	tags: ["data processing"],
-	papers: [ "hive" ],
-	git: "https://github.com/apache/hive",
-	build: "maven",
-	down: {
+	"id": "hive",
+	"name": "Apache Hive",
+	"url": "https://hive.apache.org",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Hive",
+	"description": "Hive is a data warehousing infrastructure for Hadoop.  Hive provides a SQL-like language (HiveQL) for expressing queries over data stored in the filesystem, and compiles queries into jobs that evaluate the query.  Hive is best used for batch jobs over immutable data.",
+	"month": 6,
+	"year": 2009,
+	"tags": ["data processing"],
+	"papers": [ "hive" ],
+	"git": "https://github.com/apache/hive",
+	"build": "maven",
+	"down": {
 		"mapreduce": "Hive queries can be compiled into Hadoop MapReduce jobs, but queries may have high latency (10s of seconds)",
 		"tez": "Hive queries can be compiled into Tez task DAGs and have substantially reduced overheads compared to MapReduce",
-		"spark": "Spark SQL has full compatibility with existing Hive queries, and can evaluate existing queries on existing Hive data (see HIVE-7292)"
+		"spark": "Spark SQL has full compatibility with existing Hive queries, and can evaluate existing queries on existing Hive data (see HIVE-7292)",
 		"hdfs": "Hive can run queries over data stored in HDFS",
 		"hbase": "Hive can run queries over data stored in HBase",
-		"cassandra": "Hive can run queries over data stored in Cassandra",
-	},
+		"cassandra": "Hive can run queries over data stored in Cassandra"
+	}
 }

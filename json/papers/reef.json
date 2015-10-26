@@ -1,6 +1,6 @@
 {
-	id: "reef",
-	name: "REEF: Retainable Evaluator Execution Framework",
-	url: "http://dl.acm.org/citation.cfm?id=2536318",
-	pdf: "http://www.reef-project.org/wp-content/uploads/2014/01/2013-VLDB-REEF.pdf",
+	"id": "reef",
+	"name": "REEF: Retainable Evaluator Execution Framework",
+	"url": "http://dl.acm.org/citation.cfm?id=2536318",
+	"pdf": "http://www.reef-project.org/wp-content/uploads/2014/01/2013-VLDB-REEF.pdf"
 }

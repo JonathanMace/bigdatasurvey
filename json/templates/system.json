@@ -1,19 +1,19 @@
 {
-	id: "",
-	name: "",
-	url: "",
-	wiki: "",
-	description: "",
-	month: 0,
-	year: 0,
-	tags: [],
-	papers: [],
-	git: "",
-	build: "",
-	down: {
+	"id": "",
+	"name": "",
+	"url": "",
+	"wiki": "",
+	"description": "",
+	"month": 0,
+	"year": 0,
+	"tags": [],
+	"papers": [],
+	"git": "",
+	"build": "",
+	"down": {
 		
 	},
-	additional: {
+	"additional": {
 		
-	},
+	}
 }

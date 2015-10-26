@@ -1,17 +1,17 @@
 {
-	id: "pig",
-	name: "Apache Pig",
-	url: "http://pig.apache.org/",
-	wiki: "https://en.wikipedia.org/wiki/Pig_(programming_tool)",
-	description: "Pig is a platform for writing high-level programs over large datasets, that are then automatically compiled down into DAGs that run the program.",
-	month: 9,
-	year: 2008,
-	tags: [ "data processing"],
-	papers: [ "piglatin" ],
-	git: "https://github.com/apache/pig",
-	build: "ant",
-	down: {
+	"id": "pig",
+	"name": "Apache Pig",
+	"url": "http://pig.apache.org/",
+	"wiki": "https://en.wikipedia.org/wiki/Pig_(programming_tool)",
+	"description": "Pig is a platform for writing high-level programs over large datasets, that are then automatically compiled down into DAGs that run the program.",
+	"month": 9,
+	"year": 2008,
+	"tags": [ "data processing"],
+	"papers": [ "piglatin" ],
+	"git": "https://github.com/apache/pig",
+	"build": "ant",
+	"down": {
 		"mapreduce": "Pig programs can be compiled into Hadoop MapReduce jobs",
-		"tez": "Pig programs can be compiled into Apache Tez jobs",
-	},
+		"tez": "Pig programs can be compiled into Apache Tez jobs"
+	}
 }

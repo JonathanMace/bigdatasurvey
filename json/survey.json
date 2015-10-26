@@ -1,0 +1,19 @@
+[
+  "accumulo",
+  "cassandra",
+  "flume",
+  "hbase",
+  "hdfs",
+  "hive",
+  "impala",
+  "kudu",
+  "mapreduce",
+  "mesos",
+  "pig",
+  "reef",
+  "spark",
+  "sparksql",
+  "tez",
+  "yarn",
+  "zookeeper"
+]

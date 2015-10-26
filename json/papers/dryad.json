@@ -1,6 +1,6 @@
 {
-	id: "dryad",
-	name: "Dryad: Distributed Data-Parallel Programs from Sequential Building Blocks",
-	url: "http://research.microsoft.com/en-us/projects/dryad/",
-	pdf: "http://research.microsoft.com/pubs/63785/eurosys07.pdf",
+	"id": "dryad",
+	"name": "Dryad: Distributed Data-Parallel Programs from Sequential Building Blocks",
+	"url": "http://research.microsoft.com/en-us/projects/dryad/",
+	"pdf": "http://research.microsoft.com/pubs/63785/eurosys07.pdf"
 }

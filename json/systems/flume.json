@@ -1,0 +1,19 @@
+{
+	"id": "flume",
+	"name": "Apache Flume",
+	"url": "https://flume.apache.org",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Flume",
+	"description": "Apache Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. It has a simple and flexible architecture based on streaming data flows.",
+	"month": 10,
+	"year": 2011,
+	"tags": [ "stream processing" ],
+	"git": "https://github.com/apache/flume",
+	"build": "maven",
+	"down": {
+		"kafka": "Supports sinks and sources in Apache Kafka",
+		"zookeeper": "Flume can use zookeeper as its configuration store",
+		"hdfs": "Supports sinks and sources in HDFS",
+		"hbase": "Supports sinks and sources in HBase",
+		"hive": "Flume supports outputting data for use by Hive"
+	}
+}
