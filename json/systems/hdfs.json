@@ -1,6 +1,6 @@
 {
 	"id": "hdfs",
-	"name": "Hadoop Distributed File System",
+	"name": "HDFS",
 	"wiki": "https://en.wikipedia.org/wiki/Apache_Hadoop#HDFS",
 	"url": "https://hadoop.apache.org/",
 	"description": "The Hadoop distributed file system (HDFS) is a distributed, scalable, and portable file-system written in Java for the Hadoop framework, inspired by the Google File System. A Hadoop cluster has nominally a single namenode plus a cluster of datanodes, although redundancy options are available for the namenode due to its criticality. Each datanode serves up blocks of data over the network using a block protocol specific to HDFS. The file system uses TCP/IP sockets for communication. Clients use remote procedure call (RPC) to communicate between each other.",
