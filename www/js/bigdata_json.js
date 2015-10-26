@@ -111,3 +111,7 @@ var createGraphFromSurveyData = function(surveyData, params) {
     console.log("Done creating graph from reports");
     return graph;
 }
+
+var createInfoPopup = function() {
+	return $("<div>").append("Info popup");
+}

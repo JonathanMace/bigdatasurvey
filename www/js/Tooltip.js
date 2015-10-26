@@ -75,8 +75,54 @@ var DirectedAcyclicGraphEdgeTooltip = function(gravity) {
 	return tooltip;
 }
 
+var InfoTooltip = function() {
 
-var Tooltip = function(gravity) {
+	var gravity = $.fn.tipsy.autoBounds(0, "nw");
+	var tooltip = Tooltip(gravity, "info").title(function() {
+		var tooltip = $("<div>").attr("class", "info-tooltip");
+		console.log("tooltip");
+
+		function appendRow(key, value, tooltip) {
+			var keyrow = $("<div>").attr("class", "key").append(key);
+			var valrow = $("<div>").attr("class", "value").append(value);
+			var clearrow = $("<div>").attr("class", "clear");
+			tooltip.append($("<div>").attr("class", "inforow").append(keyrow).append(valrow).append(clearrow));
+		}
+		
+		var wip = "This page is a work in progress";
+		var description1 = "What \"Big Data\" systems exist out there?";
+		var description2 = "How do they interact with each other?";
+		var usage = "Hover over nodes to see system descriptions.";
+		var usage2 = "Hover over edges for information on how two systems interact.";
+		var usage3 = "Right-click nodes to show / hide different systems";
+		var about = "This was hacked together by <a href=\"http://cs.brown.edu/people/jcmace\">Jonathan Mace</a>";
+		var about2 = "Corrections and additions welcome at <a href=\"http://www.github.com/JonathanMace/bigdatasurvey\">GitHub</a>";
+
+		var space = "<div style='padding-bottom: 10px'></div>";
+		
+		appendRow("", "<i>Work in Progress</i>", tooltip);
+		appendRow("", space, tooltip);
+		
+		appendRow("", description1, tooltip);
+		appendRow("", description2, tooltip);
+		appendRow("", space, tooltip);
+		
+		appendRow("", usage, tooltip);
+		appendRow("", usage2, tooltip);
+		appendRow("", usage3, tooltip);
+		appendRow("", space, tooltip);
+		
+		appendRow("", about, tooltip);
+		appendRow("", about2, tooltip);
+
+		return tooltip.outerHTML();
+	});
+
+	return tooltip;
+}
+
+
+var Tooltip = function(gravity, className) {
 	if (gravity==null)
 		gravity = $.fn.tipsy.autoWE;
 
@@ -86,7 +132,8 @@ var Tooltip = function(gravity) {
 				gravity: gravity,
 				html: true,
 				title: function() { return title(d); },
-				opacity: 1
+				opacity: 1,
+				className: className,
 			});
 		});
 	}

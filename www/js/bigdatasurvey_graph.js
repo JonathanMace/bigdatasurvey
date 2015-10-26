@@ -8,6 +8,17 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
     var minimapSVG = rootSVG.append("svg").attr("class", "minimap-attach");
     var listSVG = rootSVG.append("svg").attr("class", "history-attach");
     
+    var infoTooltip = InfoTooltip();
+    var infoHover = rootSVG.append("g").attr("transform", "translate(25,25)").classed("infohover", true);
+    var infoCircle = infoHover.append("circle").attr("r", 20);
+    infoHover.append("text").attr("text-anchor", "middle").attr("x", 0)
+             .append("tspan").attr("x", 0).attr("dy", "0.35em").attr("font-size", "30pt").text("?").attr;
+    infoHover.on("mouseover", function(d) {
+    	infoHover.classed("hovering", true);
+    }).on("mouseout", function(d) {
+    	infoHover.classed("hovering", false);
+    }).call(infoTooltip);
+    
     // Create the graph and history representations
     var graph = createGraphFromSurveyData(surveyData, params);
     var history = DirectedAcyclicGraphHistory();

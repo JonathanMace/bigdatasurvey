@@ -1,3 +1,29 @@
+.infohover {
+	cursor: default
+}
+
+.infohover circle {
+	fill: #F9F9F9;
+	stroke: black;
+	stroke-width: 4px;
+	transition: fill 0.5s;
+	-webkit-transition: fill 0.5s;
+}
+
+.infohover.hovering circle {
+	fill: #DDDDFF;
+	transition: fill 0.5s;
+	-webkit-transition: fill 0.5s;
+}
+
+.infohover tspan {
+	font-size: 30pt;
+	font-family: sans-serif;
+	font-weight: bold;
+	stroke: black;
+	fill: black;
+}
+
 .graph,.list {
 	cursor: default
 }
@@ -155,6 +181,18 @@
 	dy: 1em;
 	text-anchor: middle;
 	dominant-baseline: central;
+}
+
+.tipsy.info .tipsy-inner {
+	background: #EEEEEE;
+	color: black;
+	stroke: black;
+	border: 1px solid black;
+	font-family: Verdana;
+}
+
+.inforow {
+	padding-bottom: 3px;
 }
 
 .xtrace-tooltip {
