@@ -24,7 +24,7 @@ var DirectedAcyclicGraphTooltip = function(gravity) {
 			var keyrow = $("<div>").attr("class", "key").append(key);
 			var valrow = $("<div>").attr("class", "value").append(value);
 			var clearrow = $("<div>").attr("class", "clear");
-			tooltip.append($("<div>").append(keyrow).append(valrow).append(clearrow));
+			tooltip.append($("<div>").attr("class", "tooltiprow").append(keyrow).append(valrow).append(clearrow));
 		}
 		
 		function makeUrl(url) {
@@ -33,11 +33,13 @@ var DirectedAcyclicGraphTooltip = function(gravity) {
 
 		var tooltip = $("<div>").attr("class", "xtrace-tooltip");
 		
-		appendRow("", system.name, tooltip);
+		appendRow("", "<b>" + system.name + "</b>", tooltip);
 		appendRow("Homepage", makeUrl(system.url), tooltip);
 		if (system.wiki)
 			appendRow("Wiki", makeUrl(system.wiki), tooltip);
-		appendRow("", $("<div>").attr("width", "100px").append(system.description), tooltip);
+		if (system.git)
+			appendRow("GitHub", makeUrl(system.git), tooltip);
+		appendRow("", $("<div>").attr("width", "200px").append(system.description), tooltip);
 			
 
 		return tooltip.outerHTML();
@@ -56,7 +58,7 @@ var DirectedAcyclicGraphEdgeTooltip = function(gravity) {
 			var keyrow = $("<div>").attr("class", "key").append(key);
 			var valrow = $("<div>").attr("class", "value").append(value);
 			var clearrow = $("<div>").attr("class", "clear");
-			tooltip.append($("<div>").append(keyrow).append(valrow).append(clearrow));
+			tooltip.append($("<div>").attr("class", "tooltiprow").append(keyrow).append(valrow).append(clearrow));
 		}
 		
 		function makeUrl(url) {

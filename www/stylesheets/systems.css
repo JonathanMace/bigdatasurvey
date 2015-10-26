@@ -4,7 +4,7 @@
     stroke: #9EC282;
 }
 
-.graph .node rect.distributed.file.system {
+.graph .node rect.file.system {
 	fill: #9593B2;
 	stroke: #706D98;
 }

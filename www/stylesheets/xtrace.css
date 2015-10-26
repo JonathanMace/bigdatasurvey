@@ -49,13 +49,13 @@
 
 .graph .node.selected rect,.hovering .graph .node.selected rect,.hovering .graph .node.selected.hovered.immediate rect
 	{
-	stroke: #0F4BFF;
-	fill: #B3ECFF;
+	stroke: #0F4BFF !important;
+	fill: #B3ECFF !important;
 }
 
 .graph .node.preview rect,.hovering .graph .node.preview rect {
-	fill: #EADAEC;
-	stroke: #9A38A2;
+	fill: #EADAEC !important;
+	stroke: #9A38A2 !important;
 }
 
 .graph .edge {
@@ -159,6 +159,7 @@
 
 .xtrace-tooltip {
 	text-align: left;
+	font-family: Verdana;
 }
 
 .xtrace-tooltip .key {
@@ -166,13 +167,18 @@
 	float: left;
 	width: 90px;
 	font-weight: bold;
+	padding-right: 10px;
+}
+
+.xtrace-tooltip .tooltiprow {
+	padding-bottom: 10px;
 }
 
 .xtrace-tooltip .value {
 	display: inline-block;
 	float: left;
 	word-wrap: break-word;
-	max-width: 410px;
+	max-width: 500px;
 }
 
 .xtrace-tooltip .clear {
