@@ -6,7 +6,7 @@
 	"description": "Cassandra is a distributed database with masterless replication.  Cassandra is a partitioned row store with tuneable consistency. Cassandra does not support joins or subqueries.  Cassandra was initially developed at Facebook in 2008",
 	"month": 7,
 	"year": 2008,
-	"tags": ["distributed file system"],
+	"tags": ["distributed database"],
 	"papers": [],
 	"git": "https://github.com/apache/cassandra",
 	"build": "ant"

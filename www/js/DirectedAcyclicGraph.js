@@ -82,8 +82,14 @@ function DirectedAcyclicGraph() {
     var drawnode = function(d) {
         // Attach the DOM elements
         var rect = d3.select(this).append("rect");
+        if (d.system.tags) {
+        	console.log(d.system.tags);
+        	for (var i = 0; i < d.system.tags.length; i++) {
+        		rect.classed(d.system.tags[i], true);
+        	}
+        }
         var text = d3.select(this).append("text").attr("text-anchor", "middle").attr("x", 0);
-        text.append("tspan").attr("x", 0).attr("dy", "1.1em").text(nodename);
+        text.append("tspan").attr("x", 0).attr("dy", "1.5em").text(nodename);
         var prior_pos = nodepos.call(this, d);
         if (prior_pos!=null) {
             d3.select(this).attr("transform", graph.nodeTranslate);

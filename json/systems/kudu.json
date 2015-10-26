@@ -5,7 +5,7 @@
 	"description": "Kudu is a distributed database designed as a more performant alternative to Apache HDFS and Apache HBase.  Kudu was started by Cloudera and is currently in Beta.",
 	"month": 9,
 	"year": 2015,
-	"tags": ["distributed file system"],
+	"tags": ["distributed database"],
 	"papers": ["kudu"],
 	"git": "https://github.com/cloudera/kudu",
 	"build": ""

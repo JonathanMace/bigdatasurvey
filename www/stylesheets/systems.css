@@ -1,0 +1,27 @@
+.graph .node rect {
+    fill: #C9E2B5;
+    stroke-width: 2px;
+    stroke: #9EC282;
+}
+
+.graph .node rect.distributed.file.system {
+	fill: #9593B2;
+	stroke: #706D98;
+}
+
+.graph .node rect.distributed.database {
+	fill: #E6B8C5;
+	stroke: #C58497;
+}
+
+.graph .node rect.cluster.manager,
+.graph .node rect.execution.framework {
+	fill: #FFEECC;
+	stroke: #DBC393;
+}
+
+.graph .node rect.data.processing,
+.graph .node rect.distributed.query.engine {
+	fill: #B8CCC6;
+	stroke: #87A89E;
+}

@@ -38,12 +38,6 @@
 	fill: #FFE0E5;
 }
 
-.graph .node rect {
-	fill: #FFF2CC;
-	stroke-width: 2px;
-	stroke: #A16D00;
-}
-
 .graph.animate .node rect {
 	transition: fill 0.5s, stroke 0.5s, stroke-width 0.5s;
 	-webkit-transition: fill 0.5s, stroke 0.5s, stroke-width 0.5s;
