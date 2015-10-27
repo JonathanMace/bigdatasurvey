@@ -1,0 +1,19 @@
+{
+	"id": "sqoop",
+	"name": "Apache Sqoop",
+	"url": "http://sqoop.apache.org/",
+	"wiki": "https://en.wikipedia.org/wiki/Sqoop",
+	"description": "Sqoop is a tool designed to transfer data between Hadoop and relational databases. You can use Sqoop to import data from a relational database management system (RDBMS) such as MySQL or Oracle into the Hadoop Distributed File System (HDFS), transform the data in Hadoop MapReduce, and then export the data back into an RDBMS.  Sqoop automates most of this process, relying on the database to describe the schema for the data to be imported. Sqoop uses MapReduce to import and export the data, which provides parallel operation as well as fault tolerance.",
+	"month": 6,
+	"year": 2011,
+	"tags": ["data ingestion"],
+	"papers": [],
+	"git": "https://github.com/apache/sqoop",
+	"build": "ant",
+	"down": {
+		"hive": "Sqoop can import data from a relational database into Hive",
+		"hbase": "Sqoop can import data from a relational database into HBase",
+		"hdfs": "Sqoop stores data in HDFS", 
+		"mapreduce": "Sqoop uses MapReduce to import and export data from RDBMSs."
+	},
+}

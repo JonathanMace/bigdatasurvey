@@ -15,5 +15,8 @@
   "sparksql",
   "tez",
   "yarn",
-  "zookeeper"
+  "zookeeper",
+  "sqoop",
+  "kafka",
+  "storm"
 ]

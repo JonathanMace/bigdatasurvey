@@ -2,8 +2,7 @@ libraries:
 parquet (dremel)
 thrift (protobuf
 
-kafka
-sqoop
+
 jaql
 swift
 apache drill

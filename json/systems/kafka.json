@@ -1,0 +1,17 @@
+{
+	"id": "kafka",
+	"name": "Apache Kafka",
+	"url": "http://kafka.apache.org/",
+	"wiki": "https://en.wikipedia.org/wiki/Apache_Kafka",
+	"description": "Apache Kafka is publish-subscribe messaging rethought as a distributed commit log.  It was originally developed by LinkedIn, and open source in early 2011.  Cloudera recommends using Kafka if the data will be consumed by multiple applications, and Flume if the data is designated for Hadoop.",
+	"month": 1,
+	"year": 2011,
+	"tags": ["pub-sub", "message broker"],
+	"papers": [],
+	"git": "https://github.com/apache/kafka",
+	"build": "gradle",
+	"down": {
+		"flume": "Flume can be both a producer and consumer of Kafka data, and can be used for streaming data into Hadoop",
+		"zookeeper": "Kafka uses ZooKeeper for configuration",
+	},
+}

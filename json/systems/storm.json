@@ -1,0 +1,25 @@
+{
+	"id": "storm",
+	"name": "Apache Storm",
+	"url": "http://storm.apache.org/",
+	"wiki": "https://en.wikipedia.org/wiki/Storm_(event_processor)",
+	"description": "Storm is a distributed realtime computation system. Similar to how Hadoop provides a set of general primitives for doing batch processing, Storm provides a set of general primitives for doing realtime computation.  A Storm application is designed as a \"topology\" in the shape of a directed acyclic graph (DAG) with spouts and bolts acting as the graph vertices. Edges on the graph are named streams and direct data from one node to another. Together, the topology acts as a data transformation pipeline. At a superficial level the general topology structure is similar to a MapReduce job, with the main difference being that data is processed in real-time as opposed to in individual batches.",
+	"month": 9,
+	"year": 2011,
+	"tags": ["realtime computation"],
+	"papers": [ "storm" ],
+	"git": "https://github.com/apache/storm/",
+	"build": "maven",
+	"down": {
+		"storm": "Apache Storm can process data from Kafka in real-time",
+		"zookeeper": "All coordination between Nimbus and the Supervisors is done through a Zookeeper cluster.",
+		"hdfs": "Apache Storm can output data into HDFS",
+		"hbase": "Apache Storm can output data into HBase"
+	},
+	"resources": [
+	          {
+	        	  "url": "http://nathanmarz.com/blog/history-of-apache-storm-and-lessons-learned.html",
+	        	  "title": "History of Apache Storm and lessons learned"
+	          }
+    ]
+}
