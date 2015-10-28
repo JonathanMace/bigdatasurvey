@@ -8,6 +8,8 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
     var minimapSVG = rootSVG.append("svg").attr("class", "minimap-attach");
     var listSVG = rootSVG.append("svg").attr("class", "history-attach");
     
+    
+    // Set up the "About" info tooltip
     var infoTooltip = InfoTooltip();
     var infoHover = rootSVG.append("g").attr("transform", "translate(25,25)").classed("infohover", true);
     var infoCircle = infoHover.append("circle").attr("r", 20);
@@ -27,7 +29,7 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
     // Create the chart instances
     var DAG = DirectedAcyclicGraph();
     var DAGMinimap = DirectedAcyclicGraphMinimap(DAG).width("19.5%").height("19.5%").x("80%").y("80%");
-    var DAGHistory = List().width("15%").height("99%").x("0.5%").y("0.5%");
+    var DAGHistory = List().width("15%").height("85%").x("0.5%").y("7.5%");
     var DAGTooltip = DirectedAcyclicGraphTooltip();
     var DAGEdgeTooltip = DirectedAcyclicGraphEdgeTooltip();
     var DAGContextMenu = DirectedAcyclicGraphContextMenu(graph, graphSVG);
@@ -226,6 +228,127 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
         }
     }
     
+    // Gets the millis date of the system
+    var systemDate = function(system) {
+    	return new Date(system.year, system.month, 0,0,0,0,0).getTime();
+    }
+    
+    // Find the date range of the survey data
+    var minDate = Infinity;
+    var maxDate = 0;
+    console.log(surveyData);
+    for (var systemName in surveyData.systems) {
+    	var system = surveyData.systems[systemName];
+    	var date = systemDate(system);
+    	if (date < minDate) {
+    		minDate = date;
+    	}
+    	if (date > maxDate) {
+    		maxDate = date;
+    	}
+    }
+    
+    // Save the current date selection
+    var currentDate = maxDate;
+    
+    // Step size of 1 month
+    var step = new Date(2000,2,0,0,0,0,0).getTime() - new Date(2000,1,0,0,0,0,0).getTime();
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November", "December"
+                    ];
+    
+    // Set up slider div
+    var sliderDiv = d3.select(attachPoint).append("div").attr("class", "timeline");
+    var sliderLabel = sliderDiv.append("div").attr("id", "sliderlabel");
+    sliderDiv.append("div").attr("id", "slider");
+    sliderLabel.append("div").attr("id", "sliderlabel-month").attr("class", "sliderlabel-month");
+    sliderLabel.append("div").attr("id", "sliderlabel-year").attr("class", "sliderlabel-year");
+    sliderLabel.append("div").attr("class", "clearall");
+    var sliderButtons = sliderDiv.append("div").attr("class", "buttons");
+    
+    // Sets the slider to the specified date
+    var setDate = function(dateMillis) {
+        $("#sliderlabel-month").text(monthNames[new Date(dateMillis).getMonth()]);
+        $("#sliderlabel-year").text(new Date(dateMillis).getFullYear());
+        currentDate = dateMillis;
+    }
+    
+    var nextAnimation = null;
+    
+    // Shows / hides nodes for the current date selection
+    var showDate = function() {
+        graphSVG.selectAll(".node").attr("display", function(d) {
+            d.animation_hiding = systemDate(d.system) > currentDate ? true : null;
+            return d.animation_hiding ? "none" : "";
+        });
+        graphSVG.selectAll(".edge").attr("display", function(d) {
+            return (d.source.animation_hiding || d.target.animation_hiding) ? "none" : ""; 
+        })
+        if (currentDate < maxDate && nextAnimation == null) {
+			$(".play-timeline").attr("disabled", false);
+        }
+    }
+
+    // Attach the slider
+    $(function() {
+      $( "#slider" ).slider({
+        value: maxDate,
+        min: minDate,
+        max: maxDate,
+        step: step,
+        slide: function( event, ui ) {
+        	setDate(ui.value);
+        	showDate();
+        }
+      });
+  	  setDate(maxDate);
+    });
+    
+    // If currently animating, pause
+    var pauseAnimation = function() {
+    	if (nextAnimation != null) {
+    		clearTimeout(nextAnimation);
+    		nextAnimation = null;
+    		
+    		if (currentDate < maxDate) {
+    			$(".play-timeline").attr("disabled", false);
+    		}
+    		$(".pause-timeline").attr("disabled", true);
+    	}
+    }
+    
+    // Play animation from current date
+    var playAnimation = function() {
+    	// If another animation in progress, remove it
+    	pauseAnimation();
+    	
+    	// Now check to see whether we can animate
+    	if (currentDate < maxDate) {
+    		// Can animate, so do so
+    		currentDate += step;
+
+    		$("#slider").slider("value", currentDate);
+    		setDate(currentDate);
+    		showDate();
+
+    		$(".play-timeline").attr("disabled", true);
+    		$(".pause-timeline").attr("disabled", false);
+    		
+    		nextAnimation = window.setTimeout(playAnimation, 100);
+    	}
+    }
+    
+    // Start from scratch.
+    var restartAnimation = function() {
+    	currentDate = minDate;
+    	playAnimation();
+    }
+    
+    // Attach buttons
+    sliderButtons.append("button").attr("class", "restart-timeline").text("Restart").on("click", restartAnimation);
+    sliderButtons.append("button").attr("class", "play-timeline").text("Resume").on("click", playAnimation).attr("disabled", true);
+    sliderButtons.append("button").attr("class", "pause-timeline").text("Pause").on("click", pauseAnimation).attr("disabled", true);
+    
     // The main draw function
     this.draw = function() {
         DAGTooltip.hide();                  // Hide any tooltips
@@ -234,6 +357,7 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
         var start = (new Date()).getTime();        
         graphSVG.datum(graph).call(DAG);    // Draw a DAG at the graph attach
         console.log("draw graph", new Date().getTime() - start);
+        showDate();
         start = (new Date()).getTime();    
         minimapSVG.datum(graphSVG.node()).call(DAGMinimap);  // Draw a Minimap at the minimap attach
         console.log("draw minimap", new Date().getTime() - start);
@@ -270,48 +394,4 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
     this.graph = graph;
     this.resetViewport = resetViewport;
     this.history = history;
-    
-    
-    // Add a play button
-//    console.log("appending play button");
-//    var playbutton = rootSVG.append("svg").attr("x", "10").attr("y", "5").append("text").attr("text-anchor", "left").append("tspan").attr("x", 0).attr("dy", "1em").text("Click To Play").on("click",
-//            function(d) {
-//        animate();
-//    });
-    
-    var animate = function() {
-        var startTime = new Date().getTime();
-        
-        // Find the min and max times
-        var max = 0;
-        var min = Infinity;
-        graphSVG.selectAll(".node").each(function(d) {
-            var time = parseFloat(d.systemData["year"]);
-            if (time < min) {
-                min = time;
-            }
-            if (time > max) {
-                max = time;
-            }
-        })
-        
-        var playDuration = 10000;
-        
-        var update = function() {
-            var elapsed = new Date().getTime() - startTime
-            var threshold = (elapsed * (max - min) / playDuration) + min;
-            graphSVG.selectAll(".node").attr("display", function(d) {
-                d.animation_hiding = parseFloat(d.systemData["year"]) < threshold ? null : true;
-                return d.animation_hiding ? "none" : "";
-            });
-            graphSVG.selectAll(".edge").attr("display", function(d) {
-                return (d.source.animation_hiding || d.target.animation_hiding) ? "none" : ""; 
-            })
-            if (elapsed < playDuration) {
-                window.setTimeout(update, 10);
-            }
-        }
-        update();
-        
-    }
 }

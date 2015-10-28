@@ -1,0 +1,29 @@
+.timeline {
+  position: fixed;
+  bottom: 2%;
+  left: 5%;
+  width: 70%;
+  text-align: center;
+}
+
+.sliderlabel-month {
+  text-align: right;
+  display: inline-block;
+  width: 50%;
+  padding-right: 5px;
+  padding-left: -5px;
+}
+
+.sliderlabel-year {
+  text-align: left;
+  display: inline-block;
+  width: 49%;
+}
+
+.timeline #sliderlabel {
+  padding-top: 10px;
+}
+
+.timeline-buttons {
+  text-align: center
+}
