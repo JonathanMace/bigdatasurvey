@@ -4,7 +4,7 @@ function List() {
         x       = d3.functor(0),
         y       = d3.functor(0),
         itemwidth  = d3.functor("100%"),
-        itemheight = d3.functor(50),
+        itemheight = d3.functor(30),
         itemx      = d3.functor(0),
         itemy      = function(d, i) { return (itemheight.call(this, d, i)+2) * i; };
     
@@ -43,19 +43,25 @@ function List() {
     
     var drawitem = function(d, i) {
         var item = d3.select(this);
-        item.append("rect").attr("x", "1%").attr("y", "1%").attr("width", "98%").attr("height", "98%")
+        var rect = item.append("rect");
+        rect.attr("x", "1%").attr("y", "1%").attr("width", "98%").attr("height", "98%")
             .attr("rx", itemheight.call(this, d, i)/2).attr("ry", itemheight.call(this, d, i)/2);
+        if (d.system && d.system.tags) {
+        	for (var i = 0; i < d.system.tags.length; i++) {
+        		rect.classed(d.system.tags[i], true);
+        	}
+        }
         if (d.name) {
             item.append("text").text(d.name).attr("x", "50%").attr("dy", "1em");
         }
-        if (d.selection) {
-            var size = d.selection.length;
-            var text = "(" + size + " nodes)";
-            if (size == 1) {
-                var text = "(" + size + " node)";                
-            }
-            item.append("text").text(text).attr("x", "50%").attr("dy", "2em");
-        }
+//        if (d.selection) {
+//            var size = d.selection.length;
+//            var text = "(" + size + " nodes)";
+//            if (size == 1) {
+//                var text = "(" + size + " node)";                
+//            }
+//            item.append("text").text(text).attr("x", "50%").attr("dy", "2em");
+//        }
     }
     
     var bbox = function(d, i) {

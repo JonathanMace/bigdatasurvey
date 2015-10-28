@@ -163,8 +163,6 @@
 }
 
 .list .item rect {
-	stroke: #0F4BFF;
-	fill: #B3ECFF;
 	fill-opacity: 0.5;
 	stroke-width: 1;
 	transition: fill 0.5s, stroke 0.5s;
@@ -172,8 +170,7 @@
 }
 
 .list .item:hover rect {
-	fill: #FFF2CC;
-	stroke: #A16D00;
+  stroke-width: 5px !important;
 }
 
 .list .item text {

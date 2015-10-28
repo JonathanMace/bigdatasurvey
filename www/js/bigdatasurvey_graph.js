@@ -67,16 +67,25 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
             graphSVG.selectAll(".node").classed("preview", false);
             graphSVG.selectAll(".edge").classed("preview", false);
         }).on("hidenodes", function(nodes, selectionname) {
-            var item = history.addSelection(nodes, selectionname);
+        	var items = []
+        	for (var i = 0; i < nodes.length; i++) {
+        		var node = nodes[i];
+	            var item = history.addSelection([node], node.system.name, node.system);
+	            items.push(item);
+        	}
+        	
             graphSVG.classed("hovering", false);
             listSVG.datum(history).call(DAGHistory);
-            
-            // Find the point to animate the hidden nodes to
-            var bbox = DAGHistory.bbox().call(DAGHistory.select.call(listSVG.node(), item), item);
-            var transform = zoom.getTransform(bbox);
-            DAG.removenode(function(d) {
-                d3.select(this).classed("visible", false).transition().duration(800).attr("transform", transform).remove();
-            });
+	            
+	            // Find the point to animate the hidden nodes to
+            for (var i = 0; i < items.length; i++) {
+            	var item = items[i];
+	            var bbox = DAGHistory.bbox().call(DAGHistory.select.call(listSVG.node(), item), item);
+	            var transform = zoom.getTransform(bbox);
+	            DAG.removenode(function(d) {
+	                d3.select(this).classed("visible", false).transition().duration(800).attr("transform", transform).remove();
+	            });
+        	}
             
             dag.draw();
 
@@ -110,6 +119,10 @@ function BigDataGraph(attachPoint, surveyData, /*optional*/ params) {
             });           
             attachContextMenus();
             DAGTooltip.hide();
+        }).on("setdate", function(date) {
+        	currentDate = date;
+    		$("#slider").slider("value", currentDate);
+        	showDate();
         });
     }
     

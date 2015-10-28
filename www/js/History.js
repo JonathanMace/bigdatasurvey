@@ -2,7 +2,7 @@ var DirectedAcyclicGraphHistory = function() {
     
     var history = History();
     
-    history.addSelection = function(d, name) {
+    history.addSelection = function(d, name, system) {
         if (d.length == 0) {
             return;
         }
@@ -19,6 +19,7 @@ var DirectedAcyclicGraphHistory = function() {
         
         item.name = name;
         item.selection = d;
+        item.system = system;
         
         return history.add(item);
     }

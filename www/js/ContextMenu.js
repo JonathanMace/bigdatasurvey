@@ -11,19 +11,29 @@ var DirectedAcyclicGraphContextMenu = function(graph, graphSVG) {
     var onMenuClick = function(d) {
         if (d.operation=="hideselected") {
             var items = graphSVG.selectAll(".node.selected").data();
-            var name = "User Selection";
+            var name = "";
+            if (items.length == 1) {
+            	name = items[0].system.name;
+            } else {
+            	name = "(" + items.length + " systems)";
+            }
             handlers.hidenodes.call(this, items, name);
         }
         if (d.operation=="hideunselected") {
             var items = graphSVG.selectAll(".node").filter(function(d) {
                 return !d3.select(this).classed("selected");
             }).data();
-            var name = "User Selection";
+            var name = "";
+            if (items.length == 1) {
+            	name = items[0].system.name;
+            } else {
+            	name = "(" + items.length + " systems)";
+            }
             handlers.hidenodes.call(this, items, name);
         }
         if (d.operation=="hidethis") {
             var items = d3.select(this).data();
-            var name = "User Selection";
+            var name = items[0].system.name;
             handlers.hidenodes.call(this, items, name);
         }
         if (d.operation=="hidefield") {
@@ -63,6 +73,27 @@ var DirectedAcyclicGraphContextMenu = function(graph, graphSVG) {
                 return node.report && node.report[fieldname] && node.report[fieldname][0]==value;
             });
             handlers.selectnodes.call(this, items);
+        }
+        if (d.operation=="selectearlier") {
+        	var system = d3.select(this).data()[0].system;
+        	console.log(system);
+        	var date = new Date(system.year, system.month, 0,0,0,0,0);
+        	var items = graph.getVisibleNodes().filter(function(node) {
+        		return node.system && (node.system.year < system.year || (node.system.year == system.year && node.system.month <= system.month));
+        	});
+        	handlers.selectnodes.call(this, items);
+        }
+        if (d.operation=="selectlater") {
+        	var system = d3.select(this).data()[0].system;
+        	var items = graph.getVisibleNodes().filter(function(node) {
+        		return node.system && (node.system.year > system.year || (node.system.year == system.year && node.system.month >= system.month));
+        	});
+        	handlers.selectnodes.call(this, items);
+        }
+        if (d.operation=="setdate") {
+        	var system = d3.select(this).data()[0].system;
+        	var date = new Date(system.year, system.month, 0,0,0,0,0).getTime();
+        	handlers.setdate.call(this, date);
         }
     }
     
@@ -120,20 +151,25 @@ var DirectedAcyclicGraphContextMenu = function(graph, graphSVG) {
         selection.each(function(d) {
             
             var items = [];
+            
+            items.push({
+               "operation": "setdate",
+               "name": "Set timeline to this system"
+            });
 
             items.push({
                 "operation": "hidethis",
-                "name": "Hide this node",
+                "name": "Hide this system",
             });
             
             if (!selection.filter(".selected").empty()) {   
                 items.push({
                     "operation": "hideselected",
-                    "name": "Hide selected nodes",
+                    "name": "Hide selected systems",
                 });
                 items.push({
                     "operation": "hideunselected",
-                    "name": "Hide non-selected nodes"
+                    "name": "Hide non-selected systems"
                 })
             }
             
@@ -179,12 +215,22 @@ var DirectedAcyclicGraphContextMenu = function(graph, graphSVG) {
             
             items.push({
                "operation": "selectneighbours",
-               "name": "Select neighbours"
+               "name": "Select direct dependencies"
             });
             
             items.push({
                "operation": "selectpath",
-               "name": "Select path"
+               "name": "Select all dependencies"
+            });
+            
+            items.push({
+               "operation": "selectearlier",
+               "name": "Select older systems"
+            });
+            
+            items.push({
+               "operation": "selectlater",
+               "name": "Select newer systems"
             });
             
             addSelectField("Agent");
@@ -213,7 +259,8 @@ var DirectedAcyclicGraphContextMenu = function(graph, graphSVG) {
         "selectnodes": function() {},
         "hovernodes": function() {},
         "open": function() {},
-        "close": function() {}
+        "close": function() {},
+        "setdate": function() {}
     }
     
     menu.on = function(event, _) {
@@ -226,106 +273,6 @@ var DirectedAcyclicGraphContextMenu = function(graph, graphSVG) {
     return menu;
 }
 
-var CompareGraphContextMenu = function() {
-    
-    var onMenuOpen = function(d) {
-        handlers.open.call(this, d);
-    }
-        
-    var onMenuClick = function(d) {
-        if (d.operation=="viewthis") {
-            handlers.view.call(this, d3.select(this).datum());
-        }
-        if (d.operation=="removeselected") {
-            handlers.hide.call(this, d3.selectAll(".node.selected").data());
-        }
-        if (d.operation=="clusterselected") {
-            handlers.hide.call(this, d3.selectAll(".node").filter(function(d) {
-                return !d3.select(this).classed("selected");
-            }).data());
-        }
-        if (d.operation=="compareselected") {
-            handlers.compare.call(this, d3.selectAll(".node.selected").data());            
-        }
-        if (d.operation=="comparetoselected") {
-            var ds = d3.selectAll(".node.selected").data().concat(d3.select(this).data());
-            handlers.compare.call(this, ds);
-        }
-    }
-        
-    var ctxmenu = ContextMenu().on("click", onMenuClick)
-                               .on("open", onMenuOpen);
-
-    var menu = function(selection) {
-        menu.hide.call(this, selection);
-        selection.each(function(d) {
-            var items = [];
-
-            items.push({
-                "operation": "viewthis",
-                "name": "View execution graph"
-            })
-            
-            var selected = selection.filter(".selected");
-            if (!selected.empty() && (selection[0].length - selected[0].length) > 1) {
-                items.push({
-                    "operation": "removeselected",
-                    "name": "Remove selected from the clustering"
-                });
-            }
-            
-            if (selected[0].length > 1) {
-                items.push({
-                    "operation": "clusterselected",
-                    "name": "Re-cluster using selected"
-                });
-            }
-            
-            if (selected[0].length == 2) {
-                items.push({
-                    "operation": "compareselected",
-                    "name": "Compare graphs of selected"
-                });
-            }
-            
-            if (selected[0].length == 1) {
-                if (selected.datum() != d3.select(this).datum()) {
-                    items.push({
-                        "operation": "comparetoselected",
-                        "name": "Compare graph of this to selected"
-                    });
-                }
-            }
-            
-            ctxmenu.call(this, items);         
-            
-            d3.select(this).classed("hascontextmenu", true);
-        });
-    }
-    
-    menu.hide = function(selection) {
-        d3.select(this).selectAll(".hascontextmenu").each(function(d) {
-            $(this).unbind("contextmenu");
-        })
-        d3.select(this).selectAll(".context-menu").remove();
-    }
-    
-    var handlers = {
-        "open": function() {},
-        "view": function() {},
-        "hide": function() {},
-        "compare": function() {}
-    }
-    
-    menu.on = function(event, _) {
-        if (!handlers.hasOwnProperty(event)) return menu;
-        if (arguments.length==1) return handlers[event];
-        handlers[event] = _;
-        return menu;
-    }
-    
-    return menu;
-}
 
 var ContextMenu = function() {
     
