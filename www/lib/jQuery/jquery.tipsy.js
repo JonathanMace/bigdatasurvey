@@ -63,8 +63,12 @@
                 if (gravity.length == 2) {
                     if (gravity.charAt(1) == 'w') {
                         tp.left = pos.left + pos.width / 2 - 15;
-                    } else {
+                    } else if (gravity.charAt(1) == 'e') {
                         tp.left = pos.left + pos.width / 2 - actualWidth + 15;
+                    } else if (gravity.charAt(1) == 'n') {
+                    	tp.top = pos.top + pos.height / 2 - 15;
+                    } else if (gravity.charAt(1) == 's') {
+                    	tp.top = pos.top + pos.height / 2 - actualHeight + 15;
                     }
                 }
                 

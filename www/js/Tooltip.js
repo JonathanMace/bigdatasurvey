@@ -17,6 +17,7 @@ var timestampToTimeString = function(timestamp) {
 
 var DirectedAcyclicGraphTooltip = function(gravity) {
 
+	var gravity = $.fn.tipsy.autoBounds(0, "nw");
 	var tooltip = Tooltip(gravity).title(function(d) {
 		var system = d.system;
 
@@ -75,9 +76,44 @@ var DirectedAcyclicGraphEdgeTooltip = function(gravity) {
 	return tooltip;
 }
 
+var HistoryTooltip = function() {
+
+	var gravity = $.fn.tipsy.autoBounds(0, "wn");
+	var tooltip = Tooltip(gravity).title(function(d) {
+		console.log("History tooltip", d);
+		var system = d.system;
+
+		function appendRow(key, value, tooltip) {
+			var keyrow = $("<div>").attr("class", "key").append(key);
+			var valrow = $("<div>").attr("class", "value").append(value);
+			var clearrow = $("<div>").attr("class", "clear");
+			tooltip.append($("<div>").attr("class", "tooltiprow").append(keyrow).append(valrow).append(clearrow));
+		}
+		
+		function makeUrl(url) {
+			return $("<a>").attr("href", url).attr("target", "_blank").append(url);
+		}
+
+		var tooltip = $("<div>").attr("class", "xtrace-tooltip");
+		
+		appendRow("", "<b>" + system.name + "</b>", tooltip);
+		appendRow("Homepage", makeUrl(system.url), tooltip);
+		if (system.wiki)
+			appendRow("Wiki", makeUrl(system.wiki), tooltip);
+		if (system.git)
+			appendRow("GitHub", makeUrl(system.git), tooltip);
+		appendRow("", $("<div>").attr("width", "200px").append(system.description), tooltip);
+			
+
+		return tooltip.outerHTML();
+	});
+
+	return tooltip;
+}
+
 var InfoTooltip = function() {
 
-	var gravity = $.fn.tipsy.autoBounds(0, "nw");
+	var gravity = $.fn.tipsy.autoBounds(0, "wn");
 	var tooltip = Tooltip(gravity, "info").title(function() {
 		var tooltip = $("<div>").attr("class", "info-tooltip");
 		console.log("tooltip");

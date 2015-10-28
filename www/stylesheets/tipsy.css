@@ -58,6 +58,16 @@
 	border-right-color: transparent;
 }
 
+.tipsy-wn .tipsy-arrow {
+	left: 0;
+	top: 15px;
+	margin-top: -5px;
+	border-right-style: solid;
+	border-left: none;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+
 .tipsy-nw .tipsy-arrow {
 	top: 0;
 	left: 10px;

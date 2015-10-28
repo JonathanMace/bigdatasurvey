@@ -7,6 +7,9 @@ function List() {
         itemheight = d3.functor(30),
         itemx      = d3.functor(0),
         itemy      = function(d, i) { return (itemheight.call(this, d, i)+2) * i; };
+        
+
+    var ListTooltip = HistoryTooltip();
     
     
     function list(selection) {
@@ -31,6 +34,7 @@ function List() {
             var newitems = items.enter().insert("svg", ":first-child").attr("class", "item").attr("opacity", 1e-8)
                                 .attr("width", itemwidth).attr("height", itemheight).attr("x", itemx).attr("y", itemy);
             newitems.each(drawitem);
+            newitems.call(ListTooltip);
 
             items.transition().delay(400).duration(600).attr("x", itemx).attr("y", itemy);
             newitems.transition().delay(400).duration(600).attr("opacity", 1);
