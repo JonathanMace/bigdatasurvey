@@ -12,6 +12,6 @@
 	"build": "gradle",
 	"down": {
 		"flume": "Flume can be both a producer and consumer of Kafka data, and can be used for streaming data into Hadoop",
-		"zookeeper": "Kafka uses ZooKeeper for configuration",
-	},
+		"zookeeper": "Kafka uses ZooKeeper for configuration"
+	}
 }

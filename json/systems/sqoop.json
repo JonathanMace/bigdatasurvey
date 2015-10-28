@@ -15,5 +15,5 @@
 		"hbase": "Sqoop can import data from a relational database into HBase",
 		"hdfs": "Sqoop stores data in HDFS", 
 		"mapreduce": "Sqoop uses MapReduce to import and export data from RDBMSs."
-	},
+	}
 }

@@ -11,7 +11,7 @@
 	"git": "https://github.com/apache/storm/",
 	"build": "maven",
 	"down": {
-		"storm": "Apache Storm can process data from Kafka in real-time",
+		"kafka": "Apache Storm can process data from Kafka in real-time",
 		"zookeeper": "All coordination between Nimbus and the Supervisors is done through a Zookeeper cluster.",
 		"hdfs": "Apache Storm can output data into HDFS",
 		"hbase": "Apache Storm can output data into HBase"
